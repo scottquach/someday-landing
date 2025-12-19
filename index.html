@@ -5,6 +5,11 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+	<!-- Favicons -->
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+
 	<!-- Primary Meta Tags -->
 	<title>Someday - Weekly Planner | Keep Distracted Minds on Track</title>
 	<meta name="title" content="Someday - Weekly Planner | Keep Distracted Minds on Track">
@@ -23,7 +28,7 @@
 	<meta property="og:title" content="Someday - Weekly Planner | Keep Distracted Minds on Track">
 	<meta property="og:description"
 		content="Someday is a weekly planner app designed to help distracted minds stay organized. Features two simple views (Someday & Soon), calendar integration, private local-first data, subtasks, and morning briefs.">
-	<meta property="og:image" content="https://someday.app/mock.jpeg">
+	<meta property="og:image" content="https://someday.app/mock.png">
 	<meta property="og:image:width" content="1200">
 	<meta property="og:image:height" content="630">
 	<meta property="og:image:alt" content="Someday app interface showing a clean, paper-like planner design">
@@ -36,7 +41,7 @@
 	<meta name="twitter:title" content="Someday - Weekly Planner | Keep Distracted Minds on Track">
 	<meta name="twitter:description"
 		content="Someday is a weekly planner app designed to help distracted minds stay organized. Features two simple views (Someday & Soon), calendar integration, private local-first data, subtasks, and morning briefs.">
-	<meta name="twitter:image" content="https://someday.app/mock.jpeg">
+	<meta name="twitter:image" content="https://someday.app/mock.png">
 	<meta name="twitter:image:alt" content="Someday app interface showing a clean, paper-like planner design">
 
 	<!-- Apple -->
@@ -106,7 +111,7 @@
 		}
 
 		.container {
-			max-width: 1400px;
+			max-width: 1600px;
 			margin: 0 auto;
 			padding: 0 24px;
 		}
@@ -157,6 +162,16 @@
 
 		.hero h3 {
 			font-size: 24px;
+			display: flex;
+			align-items: center;
+			gap: 12px;
+		}
+
+		.hero h3 img {
+			height: 32px;
+			width: auto;
+			display: inline-block;
+			border-radius: 7px;
 		}
 
 		.hero h2 {
@@ -374,10 +389,13 @@
 			<div class="container">
 				<div class="hero-grid">
 					<div class="hero-image">
-						<img src="mock.jpeg" alt="Someday app interface showing a clean, paper-like planner design">
+						<img src="mock.png" alt="Someday app interface showing a clean, paper-like planner design">
 					</div>
 					<div class="hero-content">
-						<h3>Someday</h3>
+						<h3>
+							<img src="mascot.png" alt="Someday mascot">
+							Someday
+						</h3>
 						<h1>The weekly planner</h1>
 						<h2>Know the week ahead of you and get things done.</h2>
 
