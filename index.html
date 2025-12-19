@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Someday - The daily planner to keep distracted minds on track">
+	<title>Someday - Weekly Planner</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+			line-height: 1.6;
+			color: #1a1a1a;
+			background: #ffffff;
+			min-height: 100vh;
+			display: flex;
+			flex-direction: column;
+		}
+
+		main {
+			flex: 1;
+		}
+
+		.container {
+			max-width: 1400px;
+			margin: 0 auto;
+			padding: 0 24px;
+		}
+
+		.hero {
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+			padding: 80px 0;
+		}
+
+		.hero-grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 80px;
+			align-items: center;
+			width: 100%;
+		}
+
+		.hero-image {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.hero-image img {
+			max-width: 100%;
+			height: auto;
+			max-height: 85vh;
+			object-fit: contain;
+			filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.15));
+		}
+
+		.hero-content {
+			display: flex;
+			flex-direction: column;
+			gap: 32px;
+		}
+
+		.hero h1 {
+			font-size: clamp(2.5rem, 5vw, 4.5rem);
+			font-weight: 700;
+			line-height: 1.1;
+			letter-spacing: -0.02em;
+			color: #1a1a1a;
+			margin-top: -16px;
+		}
+
+		.hero h3 {
+			font-size: 24px;
+		}
+
+		.hero h2 {
+			font-size: clamp(1.25rem, 2.5vw, 2rem);
+			font-weight: 400;
+			line-height: 1.4;
+			color: #666;
+			margin-top: -16px;
+		}
+
+		.features-list {
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+			margin: 16px 0;
+		}
+
+		.feature-item {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			font-size: 1.125rem;
+			color: #333;
+		}
+
+		.feature-item::before {
+			content: '✓';
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 24px;
+			height: 24px;
+			background: #FFD60A;
+			color: #1a1a1a;
+			border-radius: 50%;
+			font-weight: 700;
+			font-size: 14px;
+			flex-shrink: 0;
+		}
+
+		.download-btn {
+			display: inline-block;
+			text-decoration: none;
+			transition: transform 0.2s;
+			align-self: flex-start;
+			margin-top: 16px;
+		}
+
+		.download-btn:hover {
+			transform: translateY(-2px);
+		}
+
+		.download-btn img {
+			height: 40px;
+			width: auto;
+			display: block;
+		}
+
+		/* New Sections Styles */
+		.section-padding {
+			padding: 120px 0;
+		}
+
+		.philosophy {
+			background: #fafafa;
+			text-align: center;
+		}
+
+		.philosophy blockquote {
+			font-size: clamp(1.25rem, 2.5vw, 2rem);
+			max-width: 800px;
+			margin: 0 auto;
+			color: #1a1a1a;
+			line-height: 1.5;
+			font-weight: 400;
+			position: relative;
+		}
+
+		.philosophy blockquote::before {
+			content: '"';
+			font-size: 4rem;
+			color: #FFD60A;
+			position: absolute;
+			left: -40px;
+			top: -20px;
+			opacity: 0.5;
+		}
+
+		.section-header {
+			max-width: 700px;
+			margin: 0 auto 60px;
+			text-align: center;
+		}
+
+		.section-header h2 {
+			font-size: clamp(2rem, 4vw, 3rem);
+			margin-bottom: 16px;
+			letter-spacing: -0.02em;
+		}
+
+		.section-header p {
+			font-size: 1.25rem;
+			color: #666;
+		}
+
+		.grid-2 {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 40px;
+		}
+
+		.grid-features {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 32px;
+		}
+
+		.card {
+			padding: 48px;
+			background: #fff;
+			border-radius: 24px;
+			border: 1px solid rgba(0, 0, 0, 0.06);
+			transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		}
+
+		.card:hover {
+			transform: translateY(-4px);
+			border-color: rgba(0, 0, 0, 0.1);
+			box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+		}
+
+		.card h3 {
+			font-size: 1.5rem;
+			margin-bottom: 16px;
+			color: #1a1a1a;
+		}
+
+		.card h4 {
+			font-size: 1.25rem;
+			margin-bottom: 12px;
+			color: #1a1a1a;
+		}
+
+		.card p {
+			color: #666;
+			font-size: 1.125rem;
+			line-height: 1.6;
+		}
+
+		.accent-text {
+			color: #FFD60A;
+			font-weight: 700;
+		}
+
+		footer {
+			padding: 60px 0 40px;
+			border-top: 1px solid rgba(0, 0, 0, 0.05);
+		}
+
+		.footer-copyright {
+			text-align: center;
+			color: #999;
+			font-size: 0.85rem;
+			margin-top: 24px;
+		}
+
+		@media (max-width: 968px) {
+			.hero {
+				min-height: auto;
+				padding: 60px 0;
+			}
+
+			.hero-grid {
+				grid-template-columns: 1fr;
+				gap: 48px;
+			}
+
+			.hero-image {
+				order: 2;
+			}
+
+			.hero-content {
+				order: 1;
+				text-align: center;
+				align-items: center;
+			}
+
+			.feature-item {
+				justify-content: center;
+			}
+
+			.download-btn {
+				align-self: center;
+			}
+
+			.section-padding {
+				padding: 80px 0;
+			}
+
+			.grid-2 {
+				grid-template-columns: 1fr;
+			}
+
+			.philosophy blockquote::before {
+				left: 0;
+				top: -30px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<main>
+		<section class="hero">
+			<div class="container">
+				<div class="hero-grid">
+					<div class="hero-image">
+						<img src="mock.jpeg" alt="Someday app interface showing a clean, paper-like planner design">
+					</div>
+					<div class="hero-content">
+						<h3>Someday</h3>
+						<h1>The weekly planner</h1>
+						<h2>Know the week ahead of you and get things done.</h2>
+
+						<div class="features-list">
+							<div class="feature-item">Two simple views: Someday & Soon</div>
+							<div class="feature-item">Calendar events alongside your todos</div>
+							<div class="feature-item">Private and local-first data</div>
+							<div class="feature-item">Subtasks, morning briefs, and more!</div>
+						</div>
+
+						<a href="https://apps.apple.com/us/app/someday-weekly-planner/id6754586557" target="_blank" class="download-btn">
+							<img src="Download_on_the_App_Store_Badge_US.svg" alt="Download on the App Store">
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="container">
+			<p class="footer-copyright">Created in Seattle by Scott Quach<br>©2025</p>
+		</div>
+	</footer>
+</body>
+
+</html>
