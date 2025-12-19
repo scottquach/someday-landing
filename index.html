@@ -338,6 +338,16 @@
 			margin-top: 24px;
 		}
 
+		.plain-link {
+			text-decoration: none;
+			color: inherit;
+		}
+
+		.plain-link:hover {
+			text-decoration: underline;
+			cursor: pointer;
+		}
+
 		@media (max-width: 968px) {
 			.hero {
 				min-height: auto;
@@ -418,7 +428,7 @@
 
 	<footer>
 		<div class="container">
-			<p class="footer-copyright">Created in Seattle by Scott Quach<br>©2025</p>
+			<p class="footer-copyright">Created in Seattle by <a class="plain-link" href="https://scottquach.com" target="_blank">Scott Quach</a><br>©2025</p>
 		</div>
 	</footer>
 </body>
